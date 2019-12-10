@@ -15,8 +15,8 @@ if (process.env.JAWSDB_URL){
     host: "localhost",
     port: 3306,
     user: process.env.SQL_USER,
-    password: process.env.SQL_PASSWORD,
-    database: "employees_DB"
+    password: process.env.SQL_PASS,
+    database: "burgers_DB"
   });
 
 }
