@@ -4,7 +4,7 @@
 
 <h3>Burgers Created</h3>
 
-<ul>
+{{!-- <ul>
   {{#each burgers}}
     {{#unless devoured}}
       {{> burgers/burger-block devoured=true}}
@@ -20,16 +20,35 @@
       {{> burgers/burger-block devoured=false}}
     {{/if}}
   {{/each}}
-</ul>
+</ul> --}}
+
+
+<ul class="list-group">
+				{{#each burgers}}
+					{{#unless this.devoured}}
+					<li class="list-group-item">
+						<div class="input-group">
+							<p class="lead"> {{this.burger_name}} </p>
+							<span class="input-group-btn">
+								<form class="devour-form button-size">
+									<input class = 'burger_id' type="hidden" name="devoured" value="{{this.id}}">
+									<button id="button" class="btn btn-default btn-lg" type="submit">OM NOM NOM!</button>
+								</form>
+							</span>
+						</div>
+					</li>
+					{{/unless}}
+				{{/each}}
+			</ul>
 
 
 <h2>Add a Burger</h2>
 <form class="create-form">
 
   <div class="form-group">
-    <input type="text" id="bur" name="name">
+    <textarea type="text" id="bur" name="b_name"></textarea>
   </div>
 
 
-  <button type="submit">Add a Burger</button>
+  <button type="submit" id="subBtn">Add a Burger</button>
 </form>
