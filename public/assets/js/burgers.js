@@ -1,18 +1,52 @@
 $(document).ready(function(){
 
-$(".devour-form").on("submit", function(event) {
+$("#subBtn").on("click", function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
-
-    var burger_id = $(this).children(".burger_id").val();
-      console.log(burger_id);
+    
+    let nBurger = $("#bur").val();
+    console.log(nBurger);
       $.ajax({
-        method: "PUT",
-        url: "/burgers/" + burger_id
+        method: "POST",
+        url: "/burgers", 
+        data: {name:nBurger}
       }).then(function(data) {
         // reload page to display devoured burger in proper column
-        console.log("I clicked");
+        console.log("hi");
         location.reload();
       });
   });
+
+$(".btn").on("click", function(event) {
+  event.preventDefault();
+
+  let id = this.parentNode[0].value;
+  
+  $.ajax({
+    method: "PUT",
+    url: "/burgers/" + id
+  }).then(function(data){
+    location.reload();
+  })
+
+
+
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+})
+
+
+
+

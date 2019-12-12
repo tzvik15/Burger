@@ -24,31 +24,47 @@
 
 
 <ul class="list-group">
+	{{#each burgers}}
+	{{#unless this.devoured}}
+	<li class="list-group-item">
+		<div class="input-group">
+			<p> {{this.burger_name}} </p>
+			<form>
+				<input class='burger_id' type="hidden" name="devoured" value="{{this.id}}">
+				<button class="btn" type="submit">OM NOM NOM!</button>
+			</form>
+		</div>
+	</li>
+	{{/unless}}
+	{{/each}}
+</ul>
+
+<div>
+		<div  id="devoured">
+		<h3 id="heaven">All good burgers go to heaven:</h3>
+			<div>
+				<ul>
 				{{#each burgers}}
-					{{#unless this.devoured}}
-					<li class="list-group-item">
-						<div class="input-group">
-							<p class="lead"> {{this.burger_name}} </p>
-							<span class="input-group-btn">
-								<form class="devour-form button-size">
-									<input class = 'burger_id' type="hidden" name="devoured" value="{{this.id}}">
-									<button id="button" class="btn btn-default btn-lg" type="submit">OM NOM NOM!</button>
-								</form>
-							</span>
-						</div>
+					{{#if this.devoured}}
+					<li>
+						<p class="lead">{{this.burger_name}} </p>
 					</li>
-					{{/unless}}
+					{{/if}}
 				{{/each}}
-			</ul>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
 
 
 <h2>Add a Burger</h2>
 <form class="create-form">
 
-  <div class="form-group">
-    <textarea type="text" id="bur" name="b_name"></textarea>
-  </div>
+	<div class="form-group">
+		<textarea type="text" id="bur" name="b_name"></textarea>
+	</div>
 
 
-  <button type="submit" id="subBtn">Add a Burger</button>
+	<button type="submit" id="subBtn">Add a Burger</button>
 </form>
