@@ -32,7 +32,7 @@ $(".btn").on("click", function(event) {
     method: "PUT",
     url: "/burgers/" + id
   }).then(function(data){
-    setTimeout(function(){ location.reload(); }, 2700);
+    setTimeout(function(){ location.reload(); }, 2900);
   })
 
 
