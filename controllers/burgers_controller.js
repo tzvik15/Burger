@@ -1,5 +1,6 @@
 const express = require("express");
 const burger = require("../models/burger.js");
+const path = require("path");
 
 const router = express.Router();
 
@@ -12,6 +13,8 @@ router.get("/", function(req, res) {
     res.render("index", hbsObject);
   });
 });
+
+
 
 router.post("/burgers", function(req, res) {
   console.log(req.body.name);
